@@ -14,6 +14,8 @@ onMounted(() => getBanner())
 
 </script>
 
+ 
+
 
 
 <template>
