@@ -1,57 +1,53 @@
 <script setup>
-
+//定义props
+defineProps({
+  title:{
+    type:String
+  },
+  subTitle:{
+    type:String
+  }
+})
 </script>
 
+
 <template>
-  <div></div>
-  <!-- 下面是插槽主体内容模版
-  <ul class="goods-list">
-    <li v-for="item in newList" :key="item.id">
-      <RouterLink to="/">
-        <img :src="item.picture" alt="" />
-        <p class="name">{{ item.name }}</p>
-        <p class="price">&yen;{{ item.price }}</p>
-      </RouterLink>
-    </li>
-  </ul>
-  -->
+  <div class="home-panel">
+    <div class="container">
+      <div class="head">
+         <!-- 主标题和副标题 -->
+        <h3>
+          {{title}}<small>{{ subTitle }}</small>
+        </h3>
+      </div>
+      <!-- 主体内容区域 -->
+       <slot />
+    </div>
+  </div>
 </template>
 
-
 <style scoped lang='scss'>
-.goods-list {
-  display: flex;
-  justify-content: space-between;
-  height: 406px;
+.home-panel {
+  background-color: #fff;
 
-  li {
-    width: 306px;
-    height: 406px;
+  .head {
+    padding: 40px 0;
+    display: flex;
+    align-items: flex-end;
 
-    background: #f0f9f4;
-    transition: all .5s;
+    h3 {
+      flex: 1;
+      font-size: 32px;
+      font-weight: normal;
+      margin-left: 6px;
+      height: 35px;
+      line-height: 35px;
 
-    &:hover {
-      transform: translate3d(0, -3px, 0);
-      box-shadow: 0 3px 8px rgb(0 0 0 / 20%);
-    }
-
-    img {
-      width: 306px;
-      height: 306px;
-    }
-
-    p {
-      font-size: 22px;
-      padding-top: 12px;
-      text-align: center;
-      text-overflow: ellipsis;
-      overflow: hidden;
-      white-space: nowrap;
-    }
-
-    .price {
-      color: $priceColor;
+      small {
+        font-size: 16px;
+        color: #999;
+        margin-left: 20px;
+      }
     }
   }
 }
